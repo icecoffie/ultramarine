@@ -1,0 +1,142 @@
+---
+import { Picture } from "astro:assets";
+import CommitCard from "../CommitCard.astro";
+import Link from "../Link.astro";
+import currentComputerImage from "../../assets/43/screenshots/plasma-dark.webp";
+import workImage from "../../assets/42/marketing/work.webp";
+import runImage from "../../assets/43/screenshots/budgie-dark.webp";
+import { makeT } from "../../i18n.ts";
+import { CarouselWrapper } from "./CarouselWrapper";
+const t = makeT(Astro.params.lang ?? "en");
+---
+
+<div
+  class="relative max-w-(--breakpoint-2xl) mx-auto px-8 md:px-16"
+  id="why-ultramarine"
+>
+  <h2 class="text-4xl font-bold mt-4 mb-12">{t("whyUltramarine.title")}</h2>
+
+  <div
+    class="w-full flex flex-col-reverse lg:flex-row items-center justify-between mb-24 gap-4"
+  >
+    <div class="lg:w-1/2">
+      <h3 class="text-2xl font-semibold mb-4">
+        {t("whyUltramarine.work.title")}
+      </h3>
+      <p class="text-gray-200 mb-3">
+        {t("whyUltramarine.work.p1")}
+      </p>
+      <p class="text-gray-200 mb-3">
+        {t("whyUltramarine.work.p2")}
+      </p>
+      <Link
+        href="https://wiki.ultramarine-linux.org/en/release/diff-fedora/"
+        arrow
+        className="flex flex-row"
+        target="_blank"
+      >
+        <span class="font-medium">{t("whyUltramarine.work.learnMore")}</span>
+      </Link>
+    </div>
+    <Picture
+      class="lg:w-[466px] rounded-lg"
+      layout="constrained"
+      src={workImage}
+      formats={["avif", "webp"]}
+      alt="Screenshot of an Ultramarine GNOME system using Libreoffice"
+      loading="eager"
+    />
+  </div>
+
+  <div
+    class="w-full flex flex-col-reverse lg:flex-row-reverse items-center justify-between mb-24 gap-4"
+  >
+    <div class="lg:w-1/2 lg:text-right">
+      <h3 class="text-2xl font-semibold mb-4">
+        {t("whyUltramarine.current.title")}
+      </h3>
+      <p class="text-gray-200 mb-3">
+        {t("whyUltramarine.current.p1")}
+      </p>
+      <p class="text-gray-200 mb-3">
+        {t("whyUltramarine.current.p2")}
+      </p>
+      <Link
+        href="https://wiki.ultramarine-linux.org/en/anywhere/anywhere/"
+        arrow
+        className="flex flex-row items-center lg:justify-end gap-2"
+        target="_blank"
+      >
+        <span class="font-medium">{t("whyUltramarine.current.learnMore")}</span>
+      </Link>
+    </div>
+    <Picture
+      class="lg:w-[466px] rounded-lg"
+      layout="constrained"
+      src={currentComputerImage}
+      formats={["avif", "webp"]}
+      alt="Screenshot of an Ultramarine Plasma system with Firefox and Terminal (fastfetch)"
+    />
+  </div>
+
+  <div
+    class="w-full flex flex-col-reverse lg:flex-row items-center justify-between gap-4 mb-24"
+  >
+    <div class="lg:w-1/2">
+      <h3 class="text-2xl font-semibold mb-4">
+        {t("whyUltramarine.tech.title")}
+      </h3>
+      <p class="text-gray-200 mb-3">
+        {t("whyUltramarine.tech.p1")}
+      </p>
+      <p class="text-gray-200 mb-3">
+        {t("whyUltramarine.tech.p2")}
+      </p>
+      <Link
+        href="https://developer.fyralabs.com"
+        arrow
+        className="flex flex-row"
+        target="_blank"
+      >
+        <span class="font-medium">{t("whyUltramarine.tech.learnMore")}</span>
+      </Link>
+    </div>
+    <div class="flex flex-col gap-2 w-full lg:w-1/2 lg:max-w-[466px]">
+      <CommitCard
+        url={"https://github.com/Ultramarine-Linux/bootc/commit/7d2024a288f47b4a2f175825aa6620c5dd6e2a60"}
+      />
+      <CommitCard
+        url={"https://github.com/FyraLabs/readymade/commit/cba410be4f3299cb457b6d4716d8e130c0b0122d"}
+      />
+      <CommitCard
+        url={"https://github.com/Ultramarine-Linux/images/commit/82c0f337619ba9c8f6622d4e6176f9af6e971e17"}
+      />
+    </div>
+  </div>
+
+  <div
+    class="w-full flex flex-col-reverse lg:flex-row-reverse items-center justify-between mb-24 gap-4"
+  >
+    <div class="lg:w-1/2 lg:text-right">
+      <h3 class="text-2xl font-semibold mb-4">
+        {t("whyUltramarine.runs.title")}
+      </h3>
+      <p class="text-gray-200 mb-3">
+        {t("whyUltramarine.runs.p1")}
+      </p>
+      <p class="text-gray-200 mb-3">
+        {t("whyUltramarine.runs.p2")}
+      </p>
+      <Link
+        href="https://flathub.org/"
+        arrow
+        className="flex flex-row items-center lg:justify-end gap-2"
+      >
+        <span class="font-medium">{t("whyUltramarine.runs.learnMore")}</span>
+      </Link>
+    </div>
+    <div class="lg:w-[466px]">
+      <CarouselWrapper client:load />
+    </div>
+  </div>
+</div>

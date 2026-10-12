@@ -1,0 +1,110 @@
+---
+import DownloadSection from "../../components/DownloadSection.astro";
+import SmallDownloadCard from "../../components/SmallDownloadCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import budgieScreenshot from "../../assets/43/screenshots/budgie.webp";
+import gnomeScreenshot from "../../assets/43/screenshots/gnome.webp";
+import xfceScreenshot from "../../assets/43/screenshots/xfce.webp";
+import plasmaScreenshot from "../../assets/43/screenshots/plasma.webp";
+import budgieScreenshotDark from "../../assets/43/screenshots/budgie-dark.webp";
+import gnomeScreenshotDark from "../../assets/43/screenshots/gnome-dark.webp";
+import xfceScreenshotDark from "../../assets/43/screenshots/xfce-dark.webp";
+import plasmaScreenshotDark from "../../assets/43/screenshots/plasma-dark.webp";
+import DownloadOptions from "../../components/DownloadOptions";
+import Windows from "~icons/fa6-brands/windows";
+import Bittorrent from "~icons/simple-icons/bittorrent";
+import Archive from "~icons/bi/archive-fill";
+import File from "~icons/bi/file-earmark-fill";
+import i18nya, { makeT } from "../../i18n.ts";
+import { makeGetStaticPaths } from "astro-i18nya";
+const t = makeT(Astro.params.lang);
+const version = "43";
+const codename = "Gas Meter";
+
+export const getStaticPaths = makeGetStaticPaths(i18nya);
+---
+
+<BaseLayout>
+  <div
+    class="flex flex-col items-start max-w-(--breakpoint-xl) mx-auto px-8 md:px-16 mt-12"
+  >
+    <h1 class="text-4xl font-bold">{t("download.pickFlavor")}</h1>
+    <h2 class="pt-1 text-gray-500">
+      {t("download.latestRelease", { version, codename })}
+    </h2>
+
+    <DownloadOptions client:load lang={Astro.params.lang} />
+
+    <div
+      class="flex flex-col items-center justify-center gap-10 mt-8 mb-24 w-full"
+    >
+      <DownloadSection
+        editionDisplayName="KDE Plasma"
+        editionName="Plasma"
+        screenshot={plasmaScreenshot}
+        screenshotDark={plasmaScreenshotDark}
+        background="/umbrella_bg.webp"
+        description={t("download.plasmaDescription")}
+        version={version}
+      />
+
+      <DownloadSection
+        editionName="Xfce"
+        screenshot={xfceScreenshot}
+        screenshotDark={xfceScreenshotDark}
+        description={t("download.xfceDescription")}
+        version={version}
+      />
+
+      <DownloadSection
+        editionName="Budgie"
+        screenshot={budgieScreenshot}
+        screenshotDark={budgieScreenshotDark}
+        description="A familiar and stylish experience with a bit of flair."
+        version={version}
+      />
+
+      <DownloadSection
+        editionName="GNOME"
+        screenshot={gnomeScreenshot}
+        screenshotDark={gnomeScreenshotDark}
+        description={t("download.gnomeDescription")}
+        version={version}
+      />
+    </div>
+
+    <h2 class="text-3xl font-bold">{t("download.alternateDownloads")}</h2>
+    <p class="pt-1 text-gray-500">{t("download.alternateDescription")}</p>
+
+    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 w-full mt-8 mb-48">
+      <SmallDownloadCard
+        title={t("download.wslTitle")}
+        description={t("download.wslDescription")}
+        link="https://apps.microsoft.com/store/detail/9PBPG2RDMZB9?cid=DevShareMCLPCB"
+      >
+        <Windows className="w-6 h-6 text-gray-400" slot="icon" />
+      </SmallDownloadCard>
+      <SmallDownloadCard
+        title={t("download.preinstalledTitle")}
+        description={t("download.preinstalledDescription")}
+        link={`https://images.fyralabs.com/images/ultramarine/${version}/`}
+      >
+        <File className="w-6 h-6 text-gray-400" slot="icon" />
+      </SmallDownloadCard>
+      <SmallDownloadCard
+        title={t("download.torrentsTitle")}
+        description={t("download.torrentsDescription")}
+        link="https://fosstorrents.com/distributions/ultramarine-linux/"
+      >
+        <Bittorrent className="w-6 h-6 text-gray-400" slot="icon" />
+      </SmallDownloadCard>
+      <SmallDownloadCard
+        title={t("download.oldReleasesTitle")}
+        description={t("download.oldReleasesDescription")}
+        link="https://images.fyralabs.com/"
+      >
+        <Archive className="w-6 h-6 text-gray-400" slot="icon" />
+      </SmallDownloadCard>
+    </div>
+  </div>
+</BaseLayout>

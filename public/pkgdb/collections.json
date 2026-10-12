@@ -1,0 +1,71 @@
+{
+  "collections": [
+    {
+      "allow_retire": true,
+      "branchname": "master",
+      "date_created": "2014-05-14 12:36:15",
+      "date_updated": "2024-02-13 13:07:23",
+      "dist_tag": ".um41",
+      "koji_name": "rawhide",
+      "name": "Ultramarine Linux",
+      "status": "Under Development",
+      "version": "devel"
+    },
+    {
+      "allow_retire": true,
+      "branchname": "master",
+      "date_created": "2014-05-14 12:36:15",
+      "date_updated": "2025-10-29 18:34:00",
+      "dist_tag": ".um43",
+      "koji_name": "f43",
+      "name": "Ultramarine Linux",
+      "status": "Active",
+      "version": "43"
+    },
+    {
+      "allow_retire": true,
+      "branchname": "master",
+      "date_created": "2014-05-14 12:36:15",
+      "date_updated": "2025-06-05 04:04:37",
+      "dist_tag": ".um42",
+      "koji_name": "f42",
+      "name": "Ultramarine Linux",
+      "status": "Active",
+      "version": "42"
+    },
+    {
+      "allow_retire": true,
+      "branchname": "master",
+      "date_created": "2014-05-14 12:36:15",
+      "date_updated": "2024-11-27 13:07:23",
+      "dist_tag": ".um41",
+      "koji_name": "f41",
+      "name": "Ultramarine Linux",
+      "status": "Active",
+      "version": "41"
+    },
+    {
+      "allow_retire": true,
+      "branchname": "master",
+      "date_created": "2014-05-14 12:36:15",
+      "date_updated": "2024-05-07 03:35:09",
+      "dist_tag": ".um40",
+      "koji_name": "f40",
+      "name": "Ultramarine Linux",
+      "status": "Active",
+      "version": "40"
+    },
+    {
+      "allow_retire": true,
+      "branchname": "master",
+      "date_created": "2014-05-14 12:36:15",
+      "date_updated": "2023-08-08 17:07:23",
+      "dist_tag": ".um39",
+      "koji_name": "f39",
+      "name": "Ultramarine Linux",
+      "status": "Active",
+      "version": "39"
+    }
+  ],
+  "output": "ok"
+}
